@@ -1,10 +1,7 @@
 const CACHE_NAME = 'bunyan-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/src/main.tsx',
-  '/src/App.tsx',
-  '/src/index.css'
+  './',
+  'index.html'
 ];
 
 self.addEventListener('install', event => {

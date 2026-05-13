@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>بنيان | نظام الإدارة الإنشائية</title>
     <meta name="description" content="تطبيق متابعة تكاليف البناء والمشاريع - يعمل بدون إنترنت" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta name="theme-color" content="#A08C5B" />
@@ -14,7 +14,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').then(reg => {
+          navigator.serviceWorker.register('sw.js').then(reg => {
             console.log('SW registered:', reg);
           }).catch(err => {
             console.log('SW registration failed:', err);

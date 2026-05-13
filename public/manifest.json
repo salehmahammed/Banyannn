@@ -1,0 +1,17 @@
+{
+  "name": "بنيان للإدارة الإنشائية",
+  "short_name": "بنيان",
+  "description": "نظام المتابعة الإنشائية وإدارة الميزانية والموردين",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F9F7F2",
+  "theme_color": "#A08C5B",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/parakeet/512/building.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

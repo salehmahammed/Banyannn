@@ -1,0 +1,122 @@
+{
+  "entities": {
+    "Building": {
+      "title": "Building",
+      "description": "A construction project or building being tracked.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "icon": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "firmId": { "type": "string" }
+      },
+      "required": ["id", "name", "createdAt", "ownerId", "firmId"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "A financial transaction (income or expense) related to a building.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "buildingId": { "type": "string" },
+        "accountId": { "type": "string" },
+        "type": { "type": "string", "enum": ["INCOME", "EXPENSE"] },
+        "title": { "type": "string" },
+        "amount": { "type": "number" },
+        "category": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "note": { "type": "string" },
+        "quantity": { "type": "number" },
+        "unitPrice": { "type": "number" },
+        "ownerId": { "type": "string" },
+        "firmId": { "type": "string" }
+      },
+      "required": ["id", "buildingId", "type", "title", "amount", "category", "date", "ownerId", "firmId"]
+    },
+    "BuildingAccount": {
+      "title": "BuildingAccount",
+      "description": "A financial account (cash, bank, etc.) linked to a building.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "buildingId": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string", "enum": ["CASH", "BANK", "CREDIT", "OTHER"] },
+        "initialBalance": { "type": "number" },
+        "ownerId": { "type": "string" },
+        "firmId": { "type": "string" }
+      },
+      "required": ["id", "buildingId", "name", "type", "initialBalance", "ownerId", "firmId"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "A transaction category.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string", "enum": ["INCOME", "EXPENSE"] },
+        "color": { "type": "string" },
+        "icon": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "firmId": { "type": "string" }
+      },
+      "required": ["id", "name", "type", "ownerId", "firmId"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User specific information and roles.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["ADMIN", "EMPLOYEE"] },
+        "firmId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role", "firmId"]
+    },
+    "Invite": {
+      "title": "Invite",
+      "description": "An invitation for a new employee to join a firm.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "firmId": { "type": "string" },
+        "role": { "type": "string", "enum": ["ADMIN", "EMPLOYEE"] },
+        "invitedBy": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "firmId", "role", "invitedBy", "createdAt"]
+    }
+  },
+  "firestore": {
+    "buildings": {
+      "schema": "Building",
+      "description": "Collection of buildings."
+    },
+    "transactions": {
+      "schema": "Transaction",
+      "description": "Collection of transactions."
+    },
+    "accounts": {
+      "schema": "BuildingAccount",
+      "description": "Collection of financial accounts."
+    },
+    "categories": {
+      "schema": "Category",
+      "description": "Collection of custom categories."
+    },
+    "users": {
+      "schema": "UserProfile",
+      "description": "Collection of user profiles."
+    },
+    "invites": {
+      "schema": "Invite",
+      "description": "Collection of invites."
+    }
+  }
+}

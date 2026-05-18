@@ -1,11 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Outfit:wght@300;400;700;900&family=Tajawal:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sansSelection: "Tajawal", "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans Arabic", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply text-[#1A1A1A] bg-[#F9F7F2] antialiased selection:bg-[#1A1A1A] selection:text-white font-sans;
+  }
+
+  /* Architectural Ledger Styling */
+  .ledger-container {
+    @apply bg-white border border-[#E5E1D8] shadow-[8px_8px_0px_rgba(0,0,0,0.02)];
+  }
+
+  /* Brutalist Button Variations */
+  .btn-structural {
+    @apply relative px-4 py-2 font-bold uppercase tracking-widest text-[10px] transition-all;
+    @apply border border-[#1A1A1A] bg-white hover:bg-[#1A1A1A] hover:text-white active:translate-y-[1px];
+  }
+
+  .btn-structural-dark {
+    @apply bg-[#1A1A1A] text-white hover:bg-neutral-800 border border-[#1A1A1A];
+  }
 }
 
 @layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   @media print {
     .no-print {
       display: none !important;
@@ -21,23 +51,28 @@
       margin: 0 !important;
     }
     @page {
-      margin: 1.5cm;
+      margin: 0;
       size: auto;
     }
     body, #root, .min-h-screen {
-      height: auto !important;
-      min-height: auto !important;
+      height: 100% !important;
+      width: 100% !important;
+      min-height: 100% !important;
       overflow: visible !important;
+    }
+    html, body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
   }
   .print-only {
     display: none !important;
   }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+}
+
+@layer components {
+  /* Subtle Ledger Grids */
+  .ledger-row {
+    @apply border-b border-[#F2F0EA] last:border-0 hover:bg-[#F9F7F2]/50 transition-colors;
   }
 }

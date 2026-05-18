@@ -2,5 +2,5 @@
   "name": "بنيان - متابعة تكاليف البناء",
   "description": "برنامج احترافي لمتابعة مصروفات البناء، يعمل بكفاءة بدون إنترنت لحماية البيانات في ظروف الاتصال الضعيفة.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
